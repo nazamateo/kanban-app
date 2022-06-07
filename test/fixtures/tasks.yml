@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  categort: MyString
+  action_item: MyText
+  status: MyString
+  deadline: 2022-06-07
+  user: one
+
+two:
+  categort: MyString
+  action_item: MyText
+  status: MyString
+  deadline: 2022-06-07
+  user: two

@@ -1,0 +1,38 @@
+<div class="topnav">
+    <span>My Logo</span>
+
+    <% if user_signed_in? %>
+        <%= link_to 'Home', '/' %>
+    <% end %>
+
+    <div class="dropdown">
+        <button class="dropbtn">Features</button>
+        <div class="dropdown-content">
+            <a>Dashboard</a>
+            <a>Add more after...</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <button class="dropbtn">Resources</button>
+        <div class="dropdown-content">
+            <a>Documentation</a>
+            <a>Add more after...</a>
+        </div>
+    </div>
+
+
+    <% if user_signed_in? %>
+    <div class="dropdown">
+        <button class="dropbtn">Account make user avatar</button>
+        <div class="dropdown-content">
+            <%= link_to 'Update User Details', edit_user_registration_path %>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        </div>
+    </div>
+    <% else %>
+        <%= link_to 'Sign In', new_user_session_path %>
+        <%= link_to 'Get Started', new_user_registration_path %>
+    <% end %>
+
+</div>
