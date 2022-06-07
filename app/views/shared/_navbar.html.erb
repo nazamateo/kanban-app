@@ -4,14 +4,6 @@
     <% if user_signed_in? %>
         <%= link_to 'Home', '/' %>
     <% end %>
-
-    <div class="dropdown">
-        <button class="dropbtn">Features</button>
-        <div class="dropdown-content">
-            <a>Dashboard</a>
-            <a>Add more after...</a>
-        </div>
-    </div>
     
     <div class="dropdown">
         <button class="dropbtn">Resources</button>
@@ -23,6 +15,14 @@
 
 
     <% if user_signed_in? %>
+    <span>Calendar</span>
+    <div class="dropdown">
+        <button class="dropbtn">Dashboard</button>
+        <div class="dropdown-content">
+            <a>Map projects here</a>
+        </div>
+    </div>
+
     <div class="dropdown">
         <button class="dropbtn">Account make user avatar</button>
         <div class="dropdown-content">
@@ -31,6 +31,15 @@
         </div>
     </div>
     <% else %>
+    
+    <div class="dropdown">
+        <button class="dropbtn">Features</button>
+        <div class="dropdown-content">
+            <a>Dashboard</a>
+            <a>Add more after...</a>
+        </div>
+    </div>
+
         <%= link_to 'Sign In', new_user_session_path %>
         <%= link_to 'Get Started', new_user_registration_path %>
     <% end %>
