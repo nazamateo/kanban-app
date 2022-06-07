@@ -1,0 +1,27 @@
+
+<%= @current_user.first_name%>
+<table id="tasks_table">
+    <thread>
+        <tr>
+            <th>Action Item</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Deadline</th>
+            <th>Action</th>
+        </tr>
+    </thread>
+    
+    <tbody>
+    <% @current_user_tasks.each do |task| %>
+        <tr>
+            <td><%= link_to task.action_item, user_task_path(@current_user.id, task.id) %></td>
+            <td><%=task.category%></td>
+            <td><%=task.status%></td>
+            <td><%=task.deadline%></td>
+            <td><%= link_to 'Update', edit_user_task_path(@current_user.id, task.id) %></td>
+        </tr>
+    <%end%>
+    </tbody>
+</table>
+
+<%= link_to 'New task', new_user_task_path(@current_user.id) %>
