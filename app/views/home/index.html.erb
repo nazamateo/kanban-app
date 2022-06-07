@@ -1,5 +1,7 @@
 <h1>Welcome, <%= @name%>!</h1>
 
-<%= link_to 'My tasks', user_tasks_path(@current_user.id) %>
-<%= link_to 'New task', new_user_task_path(@current_user.id) %>
+    <% if user_signed_in? %>
+        <%= link_to 'My tasks', user_tasks_path(@current_user.id) %>
+        <%= link_to 'New task', new_user_task_path(@current_user.id) %>
+    <% end %>
 
