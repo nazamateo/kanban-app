@@ -1,0 +1,4 @@
+<span>Action Item</span> | <span>Urgency</span> | <span>Impact</span> | <span>Status</span> |<span>Created At</span> | <span>Deadline</span><br>
+<% @tasks.each do |t| %>
+<%=t.action_item%> | <%=t.urgency%> | <%=t.impact%> | <%=t.status%> | <%=t.created_at.to_date%> | <%=t.deadline%><br>
+<%end%>

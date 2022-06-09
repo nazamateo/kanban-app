@@ -15,14 +15,8 @@
 
 
     <% if user_signed_in? %>
-    <span>Calendar</span>
-    <div class="dropdown">
-        <button class="dropbtn">Dashboard</button>
-        <div class="dropdown-content">
-            <a>Map projects here</a>
-        </div>
-    </div>
-
+    <%= link_to 'Calendar', user_calendar_path(current_user.id) %>
+    <%= link_to 'Dashboard', user_categories_path(current_user.id) %>
     <div class="dropdown">
         <button class="dropbtn">Account make user avatar</button>
         <div class="dropdown-content">

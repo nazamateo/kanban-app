@@ -1,0 +1,5 @@
+<%= @category.project_title%>
+<%= @category.details%>
+
+<%= link_to 'My Categories', user_categories_path(current_user.id) %>
+<%= link_to 'New Task', new_user_category_task_path(current_user.id, @category.id) %>

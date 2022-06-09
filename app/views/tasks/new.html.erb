@@ -1,13 +1,40 @@
 
-<h2>Add a tasks:</h2>
-<%= form_with model: [ @current_user, @current_user.tasks.build ] do |form| %>
-  <p>
-    <%= form.label :category %><br>
-    <%= form.text_field :category %>
-  </p>
+<p><%= @category%></p>
+
+<h2>Add a task:</h2>
+
+<% if @task.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@task.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+    <ul>
+      <% @task.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: [current_user, @category, @task ] do |form| %>
   <p>
     <%= form.label :action_item %><br>
     <%= form.text_field :action_item %>
+  </p>
+  <p>
+    <%= form.label :urgency %><br>
+    <%= form.select(:urgency, options_for_select([["Blocker"],["Critical"],["Medium"],["Trivial"]])) %>
+  </p>
+  <p>
+    <%= form.label :impact %><br>
+    <%= form.select(:impact, options_for_select([["Significant"],["Moderate"],["Low"]])) %>
+  </p>
+  <p>
+    <%= form.label :status %><br>
+    <%= form.select(:status, options_for_select([["Waiting"],["Working on it"], ["Need help"], ["Done"]])) %>
+  </p>
+  <p>
+    <%= form.label :deadline %><br>
+    <%= form.date_field :deadline %>
   </p>
   <p>
     <%= form.submit %>
