@@ -1,5 +1,5 @@
 
-
+<div class='add_categories'>
 <% if @category.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@category.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -25,3 +25,4 @@
     <%= form.submit %>
   </p>
 <% end %>
+</div>

@@ -1,3 +1,24 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#tasks_table {
+  font-size: 12px;
+  border-collapse: collapse;
+  width: 60%;
+  margin: 2%;
+
+  th,
+  td {
+    text-align: center;
+    padding: 8px;
+  }
+
+  td {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+  }
+
+  td:nth-child(1) {
+    width: 40%;
+  }
+}
