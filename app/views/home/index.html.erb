@@ -1,5 +1,7 @@
 <h1>Welcome, <%= @name%>!</h1>
+<h2>Current Tmezone :<%= current_user.time_zone %></h2>
     <% if user_signed_in? %>
-        <%= link_to 'My Categories', user_categories_path(current_user.id) %>
+        <%= link_to 'My Dashboard', categories_path %>
+        <%= link_to 'Calendar', calendar_path %>
     <% end %>
 

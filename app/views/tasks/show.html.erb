@@ -1,8 +1,6 @@
 <%= @task.action_item%>
-<%= @task.urgency%>
-<%= @task.impact%>
-<%= @task.status%>
+<%= @task.priority%>
 <%= @task.deadline%>
 
 
-<%= link_to 'My Categories', user_categories_path(current_user.id) %>
+<%= link_to 'My Dashboard', categories_path %>

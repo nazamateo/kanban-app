@@ -15,8 +15,8 @@
 
 
     <% if user_signed_in? %>
-    <%= link_to 'Calendar', user_calendar_path(current_user.id) %>
-    <%= link_to 'Dashboard', user_categories_path(current_user.id) %>
+    <%= link_to 'Calendar', calendar_path %>
+    <%= link_to 'Dashboard', categories_path %>
     <div class="dropdown">
         <button class="dropbtn">Account make user avatar</button>
         <div class="dropdown-content">

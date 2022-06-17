@@ -8,24 +8,20 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", readonly: true %>
   </div>
 
-  <div>
+  <div class="field">
      <%= f.label :first_name %><br />
      <%= f.text_field :first_name, autofocus: true %>
   </div>
 
-  <div>
+  <div class="field">
      <%= f.label :last_name %><br />
      <%= f.text_field :last_name, autofocus: true %>
   </div>
-
-  <div>
-     <%= f.label :position %><br />
-     <%= f.text_field :position, autofocus: true %>
+  
+  <div class="field">
+  <%= f.label :time_zone%><br />
+  <%= f.time_zone_select :time_zone %>
   </div>
-
-  <div>
-     <%= f.label :contact_number %><br />
-     <%= f.text_field :contact_number, autofocus: true %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

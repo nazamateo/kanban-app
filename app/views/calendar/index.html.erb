@@ -1,4 +1,6 @@
-<span>Action Item</span> | <span>Urgency</span> | <span>Impact</span> | <span>Status</span> |<span>Created At</span> | <span>Deadline</span><br>
-<% @tasks.each do |t| %>
-<%=t.action_item%> | <%=t.urgency%> | <%=t.impact%> | <%=t.status%> | <%=t.created_at.to_date%> | <%=t.deadline%><br>
+<h1><%= Time.now.in_time_zone(current_user.time_zone) %></h1>
+
+<span>Action Item</span> | <span>Priority</span> |<span>Created At</span> | <span>Deadline</span><br>
+<% @tasks_today.each do |t| %>
+<%=t.action_item%> | <%=t.priority%> | <%=t.created_at.to_date%> | <%=t.deadline%><br> <%=Date.current.in_time_zone(current_user.time_zone)%>
 <%end%>

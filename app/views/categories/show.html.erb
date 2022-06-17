@@ -1,5 +1,5 @@
-<%= @category.project_title%>
+<%= @category.title%>
 <%= @category.details%>
 
-<%= link_to 'My Categories', user_categories_path(current_user.id) %>
-<%= link_to 'New Task', new_user_category_task_path(current_user.id, @category.id) %>
+<%= link_to 'My Dashboard', categories_path %>
+<%= link_to 'New Task', new_category_task_path(@category.id) %>

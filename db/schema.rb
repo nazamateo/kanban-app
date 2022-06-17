@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_06_07_143825) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "project_title"
+    t.string "title"
     t.text "details"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -26,9 +26,7 @@ ActiveRecord::Schema.define(version: 2022_06_07_143825) do
 
   create_table "tasks", force: :cascade do |t|
     t.text "action_item"
-    t.string "status", default: "waiting"
-    t.string "urgency"
-    t.string "impact"
+    t.string "priority"
     t.date "deadline"
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
@@ -48,6 +46,7 @@ ActiveRecord::Schema.define(version: 2022_06_07_143825) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "time_zone", default: "UTC"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

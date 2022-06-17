@@ -15,22 +15,14 @@
   </div>
 <% end %>
 
-<%= form_with model: [current_user, @category, @task ] do |form| %>
+<%= form_with model: [@category, @task ] do |form| %>
   <p>
     <%= form.label :action_item %><br>
     <%= form.text_field :action_item %>
   </p>
   <p>
     <%= form.label :urgency %><br>
-    <%= form.select(:urgency, options_for_select([["Blocker"],["Critical"],["Medium"],["Trivial"]])) %>
-  </p>
-  <p>
-    <%= form.label :impact %><br>
-    <%= form.select(:impact, options_for_select([["Significant"],["Moderate"],["Low"]])) %>
-  </p>
-  <p>
-    <%= form.label :status %><br>
-    <%= form.select(:status, options_for_select([["Waiting"],["Working on it"], ["Need help"], ["Done"]])) %>
+    <%= form.select(:priority, options_for_select([["Critical"],["Medium"],["Trivial"]])) %>
   </p>
   <p>
     <%= form.label :deadline %><br>

@@ -1,14 +1,14 @@
+<div class='dashboard_page'>
+
 <%= current_user.first_name%><br>
 
-        <% @current_user.categories.each do |c| %>
-        <%= link_to c.project_title, user_category_path(current_user.id, c)%> | <button><%= link_to 'Update', edit_user_category_path(current_user.id, c)%></button> | <button><%= link_to 'Delete', user_category_path(current_user.id, c), method: :delete, data: {confirm: 'Are you sure?'}%></button><br>
+        <% @categories.each do |c| %>
+        <%= link_to c.title, category_path(c.id)%> | <button><%= link_to 'Update', edit_category_path(c.id)%></button> | <button><%= link_to 'Delete', category_path(c.id), method: :delete, data: {confirm: 'Are you sure?'}%></button><br>
         <table id="tasks_table">
                     <thread>
                         <tr>
                             <th>Action Item</th>
-                            <th>Urgency</th>
-                            <th>Impact</th>
-                            <th>Status</th>
+                            <th>Priority</th>
                             <th>Deadline</th>
                             <th>Action</th>
                         </tr>
@@ -16,18 +16,17 @@
                     <tbody>
                         <% c.tasks.each do |t| %>
                         <tr>
-                            <td><%= link_to t.action_item, user_category_task_path(current_user.id,c.id,t.id)%></td>
-                            <td><%= t.urgency%></td>
-                            <td><%= t.impact%></td>
-                            <td><%= t.status%></td>
+                            <td><%= link_to t.action_item, category_task_path(c.id,t.id)%></td>
+                            <td><%= t.priority%></td>
                             <td><%= t.deadline%></td>
-                            <td><%= link_to 'Update', edit_user_category_task_path(current_user.id,c.id, t.id)%> | <%= link_to 'Delete',user_category_task_path(current_user.id,c.id, t.id), method: :delete, data: {confirm: 'Are you sure?'}%> </td>
+                            <td><%= link_to 'Update', edit_category_task_path(c.id, t.id)%> | <%= link_to 'Delete',category_task_path(c.id, t.id), method: :delete, data: {confirm: 'Are you sure?'}%> </td>
                         </tr>
 
                         <%end%>
                     </tbody>
                 </table>
-                <%= link_to 'New Task', new_user_category_task_path(current_user.id, c.id) %><br><br><br><br>
+                <%= link_to 'New Task', new_category_task_path(c.id) %><br><br><br><br>
         <%end%>
 
-<%= link_to 'Add Category', new_user_category_path%><br>
+<%= link_to 'Add Category', new_category_path%><br>
+</div>

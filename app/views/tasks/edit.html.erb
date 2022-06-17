@@ -14,22 +14,14 @@
   </div>
 <% end %>
 
-  <%= form_with model: @task, url: user_category_task_path, method: :patch do |form| %>
+  <%= form_with model: @task, url: category_task_path, method: :patch do |form| %>
   <p>
     <%= form.label :action_item %><br>
     <%= form.text_field :action_item %>
   </p>
   <p>
-    <%= form.label :urgency %><br>
-    <%= form.select(:urgency, options_for_select([["Blocker"],["Critical"],["Medium"],["Trivial"]])) %>
-  </p>
-  <p>
-    <%= form.label :impact %><br>
-    <%= form.select(:impact, options_for_select([["Significant"],["Moderate"],["Low"]])) %>
-  </p>
-  <p>
-    <%= form.label :status %><br>
-    <%= form.select(:status, options_for_select([["Waiting"],["Working on it"], ["Need help"], ["Done"]])) %>
+    <%= form.label :priority %><br>
+    <%= form.select(:priority, options_for_select([["Critical"],["Medium"],["Trivial"]])) %>
   </p>
   <p>
     <%= form.label :deadline %><br>
@@ -40,4 +32,4 @@
   </p>
 <% end %>
 
-  <%= link_to 'My Categories', user_categories_path(current_user.id) %>
+  <%= link_to 'My Dashboard', categories_path %>

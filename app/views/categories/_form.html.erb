@@ -12,10 +12,10 @@
   </div>
 <% end %>
 
-<%= form_with model: [@current_user, @category ] do |form| %>
+<%= form_with model: [@category ] do |form| %>
   <p>
-    <%= form.label :project_title %><br>
-    <%= form.text_field :project_title %>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
   </p>
   <p>
     <%= form.label :details %><br>

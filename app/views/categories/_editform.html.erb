@@ -11,10 +11,10 @@
   </div>
 <% end %>
 
-<%= form_with model: @category, url: user_category_path, method: :patch do |form| %>
+<%= form_with model: @category, url: category_path, method: :patch do |form| %>
   <p>
-    <%= form.label :project_title %><br>
-    <%= form.text_field :project_title %>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
   </p>
   <p>
     <%= form.label :details %><br>
