@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  categort: MyString
+  category: MyString
   action_item: MyText
-  status: MyString
+  priority: MyString
   deadline: 2022-06-07
   user: one
 
 two:
-  categort: MyString
+  category: MyString
   action_item: MyText
-  status: MyString
+  priority: MyString
   deadline: 2022-06-07
   user: two
