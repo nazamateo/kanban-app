@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
         @category = Category.find params[:id]
         @category.destroy
             respond_to do |format|
-                format.html { redirect_to '/categories', notice: "Category was successfully destroyed." }
+                format.html { redirect_to '/categories', notice: "Category was successfully deleted!" }
             end
     end
 
