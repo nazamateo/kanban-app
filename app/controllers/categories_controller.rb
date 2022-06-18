@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
         @category = current_user.categories.build(category_params)
         respond_to do |format|
             if  @category.save
-                format.html { redirect_to category_path(@category.id), notice: "Category was successfully created!." }
+                format.html { redirect_to category_path(@category), notice: "Category was successfully created!." }
             else
                 format.html { render :new, status: :unprocessable_entity }
             end
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
         @category = Category.find params[:id]
         respond_to do |format|
             if @category.update(category_update_params)
-                format.html { redirect_to category_path(@category.id), notice: "Category was successfully updated!." }
+                format.html { redirect_to category_path(@category), notice: "Category was successfully updated!." }
             else
                 format.html { render :edit, status: :unprocessable_entity }
             end

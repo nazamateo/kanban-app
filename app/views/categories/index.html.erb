@@ -16,10 +16,10 @@
                     <tbody>
                         <% c.tasks.each do |t| %>
                         <tr>
-                            <td><%= link_to t.action_item, category_task_path(c.id,t.id)%></td>
+                            <td><%= link_to t.action_item, task_path(t.id)%></td>
                             <td><%= t.priority%></td>
                             <td><%= t.deadline%></td>
-                            <td><%= link_to 'Update', edit_category_task_path(c.id, t.id)%> | <%= link_to 'Delete',category_task_path(c.id, t.id), method: :delete, data: {confirm: 'Are you sure?'}%> </td>
+                            <td><%= link_to 'Update', edit_task_path(t.id)%> | <%= link_to 'Delete',task_path(t.id), method: :delete, data: {confirm: 'Are you sure?'}%> </td>
                         </tr>
 
                         <%end%>

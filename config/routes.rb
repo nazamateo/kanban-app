@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get '/calendar', to: 'calendar#index', as: 'calendar'
   root to: "home#index"
   resources :categories do
-    resources :tasks
+    resources :tasks, shallow: true
     end
   end

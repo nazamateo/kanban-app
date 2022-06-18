@@ -65,7 +65,7 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     
     #able to submit task form
     post category_tasks_path, params: {'task[action_item]' => 'action item', 'task[priority]' => 'Medium', 'task[deadline]' => Date.current}
-    assert_redirected_to category_task_path(Category.last,Task.last)
+    assert_redirected_to task_path(Task.last)
     follow_redirect!
     assert_response :success
     assert_select "p", "Task was successfully created!."
@@ -87,12 +87,12 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     end
     
     #able to view edit task page
-    get edit_category_task_path(Category.last, Task.last)
+    get edit_task_path(Task.last)
     assert_response :success
     
     #able to submit edit task form
-    patch category_task_path, params: {'task[action_item]' => 'action item revised', 'task[priority]' => 'Medium', 'task[deadline]' => Date.current}
-    assert_redirected_to category_task_path(Category.last,Task.last)
+    patch task_path, params: {'task[action_item]' => 'action item revised', 'task[priority]' => 'Medium', 'task[deadline]' => Date.current}
+    assert_redirected_to task_path(Task.last)
     follow_redirect!
     assert_response :success
     assert_select "p", "Task was successfully updated!."
@@ -111,7 +111,7 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_select "a", "My Dashboard"
     
     #able to delete task
-    delete category_task_path(Category.last, Task.last)
+    delete task_path(Task.last)
     assert_redirected_to categories_path
     follow_redirect!
     assert_response :success
@@ -128,5 +128,4 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     delete destroy_user_session_path
     assert_redirected_to root_path
   end
-  
 end

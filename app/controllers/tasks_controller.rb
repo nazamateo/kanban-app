@@ -13,7 +13,7 @@ class TasksController < ApplicationController
         @task = @category.tasks.build(task_params.merge(user_id: current_user.id))
         respond_to do |format|
             if  @task.save
-                format.html { redirect_to category_task_path(@category.id, @task.id), notice: "Task was successfully created!." }
+                format.html { redirect_to task_path(@task), notice: "Task was successfully created!." }
             else
                 format.html { render :new, status: :unprocessable_entity }
             end
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
     def update
         respond_to do |format|
             if @task.update(task_update_params)
-                format.html { redirect_to category_task_path(params[:category_id], @task.id), notice: "Task was successfully updated!." }
+                format.html { redirect_to task_path(@task), notice: "Task was successfully updated!." }
             else
                 format.html { render :edit, status: :unprocessable_entity }
             end
