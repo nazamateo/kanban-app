@@ -1,7 +1,6 @@
 
-<p><%= @category%></p>
+<h2>Add a task</h2>
 
-<h2>Add a task:</h2>
 
 <% if @task.errors.any? %>
   <div id="error_explanation">
@@ -15,6 +14,9 @@
   </div>
 <% end %>
 
+
+ <div class='registration_right'>
+  <div class ='registration_form'>
 <%= form_with model: [@category, @task ] do |form| %>
   <p>
     <%= form.label :action_item %><br>
@@ -31,4 +33,6 @@
   <p>
     <%= form.submit %>
   </p>
+  </div>
+  </div>
 <% end %>

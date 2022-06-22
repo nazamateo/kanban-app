@@ -1,6 +1,4 @@
-<p><%= @task%></p>
-
-<h2>Edit a task:</h2>
+<h2>Edit <%= @task.action_item%></h2>
 
 <% if @task.errors.any? %>
   <div id="error_explanation">
@@ -14,6 +12,8 @@
   </div>
 <% end %>
 
+ <div class='registration_right'>
+  <div class ='registration_form'>
   <%= form_with model: @task, url: task_path, method: :patch do |form| %>
   <p>
     <%= form.label :action_item %><br>
@@ -31,5 +31,6 @@
     <%= form.submit %>
   </p>
 <% end %>
-
+</div>
+</div>
   <%= link_to 'My Dashboard', categories_path %>

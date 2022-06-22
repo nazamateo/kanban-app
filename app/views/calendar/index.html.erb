@@ -4,3 +4,17 @@
 <% @tasks_today.each do |t| %>
 <%=t.action_item%> | <%=t.priority%> | <%=t.created_at.to_date%> | <%=t.deadline%><br> <%=Date.current.in_time_zone(current_user.time_zone)%>
 <%end%>
+
+
+<%= @tasks_tomorrow.each do |t|%>
+    <%=t.action_item%>
+<%end%>
+
+
+<%=  @tasks_this_week.each do |t|%>
+    <%=t.action_item%>
+<%end%>
+
+<%=  @tasks_this_month.each do |t| %>
+    <%=t.action_item%>
+<%end%>

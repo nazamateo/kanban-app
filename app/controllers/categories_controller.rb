@@ -5,7 +5,8 @@ class CategoriesController < ApplicationController
     end
     
     def show
-        @category = Category.find params[:id]
+        @current_user_categories = current_user.categories
+        @category = @current_user_categories.find params[:id]
     end
 
     def new

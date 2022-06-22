@@ -11,16 +11,21 @@
   </div>
 <% end %>
 
-<%= form_with model: @category, url: category_path, method: :patch do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-  <p>
-    <%= form.label :details %><br>
-    <%= form.text_field :details %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+
+<div class='registration_right'>
+  <div class ='registration_form'>
+    <%= form_with model: @category, url: category_path, method: :patch do |form| %>
+      <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+      </p>
+      <p>
+        <%= form.label :details %><br>
+        <%= form.text_field :details %>
+      </p>
+      <p>
+        <%= form.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>

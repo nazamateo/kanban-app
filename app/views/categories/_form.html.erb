@@ -1,5 +1,5 @@
 
-<div class='add_categories'>
+
 <% if @category.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@category.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -12,17 +12,21 @@
   </div>
 <% end %>
 
-<%= form_with model: [@category ] do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-  <p>
-    <%= form.label :details %><br>
-    <%= form.text_field :details %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-</div>
+
+<div class='registration_right'>
+    <div class ='registration_form'>
+      <%= form_with model: [@category ] do |form| %>
+        <p>
+          <%= form.label :title %><br>
+          <%= form.text_field :title %>
+        </p>
+        <p>
+          <%= form.label :details %><br>
+          <%= form.text_field :details %>
+        </p>
+        <p>
+          <%= form.submit %>
+        </p>
+      <% end %>
+    </div>
+  </div>

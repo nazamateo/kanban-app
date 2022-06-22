@@ -21,6 +21,7 @@ class TasksController < ApplicationController
     end
 
     def show
+    @current_user_categories = current_user.tasks
     end
     
     def edit
@@ -46,7 +47,7 @@ class TasksController < ApplicationController
     private
 
     def set_task
-        @task= Task.find params[:id]
+        @task = current_user.tasks.find params[:id]
     end
 
     def set_category
