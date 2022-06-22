@@ -1,32 +1,71 @@
+
 <div class='dashboard_page'>
 
-<%= current_user.first_name%><br>
+<h1>Welcome, <%= current_user.first_name.downcase.capitalize%>!</h1>
+<div class="new_category">
+        <%= link_to new_category_path do %>
+             <i class="fa fa-plus-square-o"></i> New Category
+        <% end %>
+</div>
+        <div class="card_grid_container">
+    <% @categories.each do |c| %>
+        <div class="cards">
+            <div class="category_links">
+                <div class="category_title">
+                    <%= link_to c.title, category_path(c.id)%>
+                    <span id="task_count"><%= c.tasks.count%></span>
+                </div>
+                <div class="dropdowna">
+                    <button class="dropbtna"><i class="fa fa-caret-square-o-down"></i></button>
+                    <div class="dropdown-contenta">
+                    <%= link_to edit_category_path(c.id) do %>
+                        <i class="fa fa-pencil-square-o"></i> Update Category
+                    <% end %>
+                    <%= link_to category_path(c.id), method: :delete, data: {confirm: 'Are you sure?'} do %>
+                        <i class="fa fa-ellipsis-h"></i> Delete Category
+                    <% end %>
+                    </div>
+                </div>
 
-        <% @categories.each do |c| %>
-        <%= link_to c.title, category_path(c.id)%> | <button><%= link_to 'Update', edit_category_path(c.id)%></button> | <button><%= link_to 'Delete', category_path(c.id), method: :delete, data: {confirm: 'Are you sure?'}%></button><br>
-        <table id="tasks_table">
-                    <thread>
-                        <tr>
-                            <th>Action Item</th>
-                            <th>Priority</th>
-                            <th>Deadline</th>
-                            <th>Action</th>
-                        </tr>
-                    </thread>
-                    <tbody>
+            </div>        
+            <div class="category_container">
                         <% c.tasks.each do |t| %>
-                        <tr>
-                            <td><%= link_to t.action_item, task_path(t.id)%></td>
-                            <td><%= t.priority%></td>
-                            <td><%= t.deadline%></td>
-                            <td><%= link_to 'Update', edit_task_path(t.id)%> | <%= link_to 'Delete',task_path(t.id), method: :delete, data: {confirm: 'Are you sure?'}%> </td>
-                        </tr>
-
+                            <div class="task_container">
+                                <div class="task_upper">
+                                    <div class="action_item">
+                                        <%= link_to t.action_item, task_path(t.id)%>
+                                    </div>
+                                    <div class="dropdowna">
+                                            <button class="dropbtna"><i class="fa fa-ellipsis-h"></i></button>
+                                            <div class="dropdown-contenta">
+                                            <%= link_to edit_task_path(t.id) do %>
+                                                <i class="fa fa-pencil-square-o"></i> Update Task
+                                            <% end %>
+                                            <%= link_to task_path(t.id), method: :delete, data: {confirm: 'Are you sure?'} do %>
+                                                <i class="fa fa-ellipsis-h"></i> Delete Task
+                                            <% end %>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="deadline_actions">
+                                    <div class="deadline">
+                                        <p><%= t.deadline.strftime('%a, %b %d')%></p>
+                                        <p><%= t.priority%></p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         <%end%>
-                    </tbody>
-                </table>
-                <%= link_to 'New Task', new_category_task_path(c.id) %><br><br><br><br>
-        <%end%>
+                        <%= link_to new_category_task_path(c.id) do %>
+                            <i class="fa fa-plus-square-o"></i> New Task
+                        <% end %>
 
-<%= link_to 'Add Category', new_category_path%><br>
+
+                        
+                        	
+            </div>
+
+        </div>
+    <%end%>
+    </div>
 </div>
